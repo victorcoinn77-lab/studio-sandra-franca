@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "appointment": {
+      "title": "Appointment",
+      "description": "A booking made by a client for a nail service.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "clientName": { "type": "string" },
+        "clientWhatsApp": { "type": "string" },
+        "service": { "type": "string" },
+        "date": { "type": "string", "format": "date" },
+        "time": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "cancelled"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["clientName", "clientWhatsApp", "service", "date", "time"]
+    },
+    "user": {
+      "title": "User",
+      "description": "A user of the system (admin).",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "role": { "type": "string", "enum": ["admin", "client"] }
+      },
+      "required": ["uid", "email", "role"]
+    }
+  },
+  "firestore": {
+    "/appointments/{appointmentId}": {
+      "schema": "appointment",
+      "description": "Collection of all appointments."
+    },
+    "/users/{userId}": {
+      "schema": "user",
+      "description": "Collection of user profiles."
+    }
+  }
+}
