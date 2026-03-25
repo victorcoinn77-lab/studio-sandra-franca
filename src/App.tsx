@@ -101,3 +101,14 @@ export default function App() {
     </div>
   );
 }
+import unha1 from "./images/unha1.jpg";
+
+function App() {
+  return (
+    <div>
+      <img src={unha1} alt="Alongamento de unhas" />
+    </div>
+  );
+}
+
+export default App;
