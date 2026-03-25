@@ -49,10 +49,10 @@ export default function App() {
 <section
   style={{
     position: "relative",
-    height: "90vh",
+    height: "70vh",
     backgroundImage: `url(${unha1})`,
     backgroundSize: "cover",
-    backgroundPosition: "center",
+    backgroundPosition: "center 20%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
