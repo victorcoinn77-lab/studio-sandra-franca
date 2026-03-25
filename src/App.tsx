@@ -1,3 +1,4 @@
+import unha1 from "./images/unha1.jpg";
 import { useState, useEffect } from 'react';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from './firebase';
@@ -9,7 +10,8 @@ import AdminPanel from './components/AdminPanel';
 import CourseSection from './components/CourseSection';
 import Footer from './components/Footer';
 import { motion, AnimatePresence } from 'motion/react';
-
+import { useEffect, useState } from "react";
+import unha1 from "./images/unha1.jpg";
 export default function App() {
   const [user, setUser] = useState<User | null>(null);
   const [view, setView] = useState<'home' | 'booking' | 'admin' | 'courses'>('home');
@@ -43,6 +45,68 @@ export default function App() {
       />
       
       <main>
+
+<section
+  style={{
+    position: "relative",
+    height: "90vh",
+    backgroundImage: `url(${unha1})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "white",
+  }}
+>
+  <div
+    style={{
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      backgroundColor: "rgba(0,0,0,0.6)",
+    }}
+  ></div>
+
+  <div
+    style={{
+      position: "relative",
+      textAlign: "center",
+      zIndex: 2,
+      transition: "all 1s ease",
+    }}
+  >
+    <h1 style={{ fontSize: "48px" }}>
+      Studio Sandra França
+    </h1>
+
+    <p style={{ fontSize: "20px", marginBottom: "20px" }}>
+      Alongamento • Cutícula Russa • Cursos
+    </p>
+
+    <a href="https://wa.me/5562999999999" target="_blank">
+      <button
+        style={{
+          padding: "15px 30px",
+          fontSize: "18px",
+          backgroundColor: "#D4AF37",
+          border: "none",
+          borderRadius: "8px",
+          cursor: "pointer",
+          transition: "0.3s",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "scale(1.1)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "scale(1)";
+        }}
+      >
+        Agendar Agora
+      </button>
+    </a>
+  </div>
+</section>
         <AnimatePresence mode="wait">
           {view === 'home' && (
             <motion.div
@@ -101,14 +165,4 @@ export default function App() {
     </div>
   );
 }
-import unha1 from "./images/unha1.jpg";
 
-function App() {
-  return (
-    <div>
-      <img src={unha1} alt="Alongamento de unhas" />
-    </div>
-  );
-}
-
-export default App;
